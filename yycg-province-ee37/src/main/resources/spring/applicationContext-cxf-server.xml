@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:jaxws="http://cxf.apache.org/jaxws"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd 
+	   					   http://cxf.apache.org/jaxws 
+	   					   http://cxf.apache.org/schemas/jaxws.xsd">
+	<!--  
+		<jaxws:server> 将本地程序发布成WebService服务
+			* address 当前的服务别名(入口)
+			* serviceClass 当前服务接口(规范)，必须添加特殊注解@WebService，表示允许发布成服务
+			* <jaxws:serviceBean> 用于确定接口对应具体处理实现类
+				<ref> 表示 spring容器一个bean引用。
+	
+	-->
+	<jaxws:server address="/syncypxx" serviceClass="cn.itcast.yycg.province.service.YpxxShengService">
+		<jaxws:serviceBean>
+			<ref bean="ypxxShengService"/>
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+</beans>
