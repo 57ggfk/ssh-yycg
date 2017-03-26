@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd ">
+		
+		
+	<!-- 0 将自定义实现类，添加spring容器 -->
+	<bean id="myJob" class="cn.itcast.yycg.quartz.test.MyJob"></bean>
+	<bean id="analyzeJob" class="cn.itcast.yycg.analyze.job.AnalyzeJob"></bean>
+	
+	
+	<!-- 1 配置任务详情：确定执行哪个类的，哪个方法 
+		* targetObject : 确定执行目标类
+		* targetMethod ：确定执行目标方法
+	-->
+	<bean id="jobDetail1" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="myJob"></property>
+		<property name="targetMethod" value="execute"></property>
+	</bean>
+	
+	<bean id="jobDetail2" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="analyzeJob"></property>
+		<property name="targetMethod" value="execute"></property>
+	</bean>
+	
+	
+	<!-- 2 配置触发器，以什么方式执行任务详情 
+		* jobDetail : 确定执行那个任务
+	-->
+	<bean id="trigger1" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetail1"></property>
+		<property name="cronExpression" value="0/3 * * * * ?"></property>
+	</bean>
+	<bean id="trigger2" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetail2"></property>
+		<property name="cronExpression" value="0/3 * * * * ?"></property>
+	</bean>
+	
+	<!-- 3 启动定制器，执行指定的触发器 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+			<!-- 	<ref bean="trigger1"/> -->
+				<ref bean="trigger2"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+</beans>
