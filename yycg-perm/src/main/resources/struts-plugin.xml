@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<!-- 授权模块
+		* 访问路径：http://localhost:8080/perm/rolelist.action
+		* 本模块以插件方式嵌入，package必须继承struts-default，此时struts.xml还没有加载，base无法使用
+	-->
+	<package name="perm" namespace="/perm" extends="struts-default">
+		<action name="*" class="permAction" method="{1}">
+		    <result name="list">/business/perm/list.jsp</result>
+			<result name="editPerm">/business/perm/editPerm.jsp</result>
+			<result name="rolelist">/business/perm/rolelist.jsp</result>
+			<result name="roleauth">/business/perm/roleauth.jsp</result>
+			<result name="addSibling">/business/perm/addSibling.jsp</result>
+			<result name="permList">/business/perm/permissionList.jsp</result>
+		</action>
+	</package>
+	
+</struts>
