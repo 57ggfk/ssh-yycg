@@ -1,0 +1,78 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd ">
+		
+	<!-- 组件扫描 -->
+	<context:component-scan base-package="cn.itcast.yycg"></context:component-scan>
+
+	<!-- 加载配置文件db.properties -->
+	<context:property-placeholder location="classpath:config/db.properties" />
+
+
+	<!-- 数据源 ，使用c3p0 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 最大连接数，建议在开发环境中设置小一点，够用即可 -->
+		<property name="maxPoolSize" value="15" />
+		<!-- 最小连接数 -->
+		<property name="minPoolSize" value="5" />
+	</bean>
+
+
+	<!-- sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 数据库源 -->
+		<property name="dataSource" ref="dataSource" />
+		
+		<!-- 加载hibernate的全局配置文件 -->
+<!-- 		<property name="configLocations" >
+			<list>
+				<value>classpath:hibernate/hibernate.cfg.xml</value>
+			</list>
+		</property> -->
+		
+		<!-- 设置hibernate属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<!-- 方言 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<!-- 日志输出显示sql -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- 日志输出中格式化sql -->
+				<prop key="hibernate.format_sql">true</prop>
+				<!-- 从hbm文件到数据库定义策略，建议设置为none，不检查po类和表结构是否一致 -->
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<!-- 配置Hibernate的session管理机制，spring与hibernate整合后采用当session与当前线程绑定 -->
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+			</props>
+		</property>
+		<!-- 加载映射文件 -->
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:cn/itcast/yycg/domain/po/*.hbm.xml</value>
+				<value>classpath:cn/itcast/yycg/province/po/*.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 配置hibernateTemplate，可以不用配置，这里主要是为了配置checkWriteOperations属性 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<!-- spring与hibernate整合后默认必须在事务下对数据库执行写操作，如果将checkWriteOperations设置为false则没有事务也可写数据库，这样是为了单独测试dao方便 -->
+		<property name="checkWriteOperations" value="false"/>
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>

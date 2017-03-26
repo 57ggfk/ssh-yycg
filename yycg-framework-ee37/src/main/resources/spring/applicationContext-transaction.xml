@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd ">
+
+<!-- 配置事务控制器 -->
+<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager" >
+		<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<!-- 配置通知 -->
+<tx:advice  id="txAdvice" transaction-manager="transactionManager">
+	<tx:attributes>
+		<!-- 配置传播行为 -->
+		<tx:method name="save*" propagation="REQUIRED"/>
+		<tx:method name="add*" propagation="REQUIRED"/>
+		<tx:method name="insert*" propagation="REQUIRED"/>
+		<tx:method name="delete*" propagation="REQUIRED"/>
+		<tx:method name="remove*" propagation="REQUIRED"/>
+		<tx:method name="update*" propagation="REQUIRED"/>
+		<tx:method name="edit*" propagation="REQUIRED"/>
+		<tx:method name="change*" propagation="REQUIRED"/>
+		<tx:method name="list*" propagation="SUPPORTS" read-only="true"/>
+		<tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+		<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+	</tx:attributes>
+</tx:advice>
+
+<!-- aop切面
+proxy-target-class="true" cglib代理
+ -->
+<aop:config proxy-target-class="true">
+	<!-- 配置切点
+	符合切点的类会被aop，生成代理对象
+	 -->                                                     
+	<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.itcast.yycg.*.service.impl.*.*(..))"/>
+</aop:config>
+
+
+</beans>
