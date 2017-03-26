@@ -1,0 +1,86 @@
+管理员:		admin
+
+XX市卫生局	xyswsj
+
+密码都是 1
+
+1 AA镇
+	AA镇老庄村卫生室	cmzlzc
+	AA镇车厂村卫生室	cmzccc
+
+	AA镇卫生院		cmz
+	河南九州通医药有限公司	ghsjzt
+	
+2 HH镇
+	HH镇关帝庙村卫生室	ylzgdmc
+	HH镇黑张村卫生室	ylzhzhc
+
+	HH镇卫生院		ylz
+	河南海恩药业有限公司	ghshaien
+3 II镇
+	II镇杨五楼村卫生室	shywlc
+	II镇城关村卫生室	shcgc
+
+	II镇卫生院		sh
+	河南海恩药业有限公司	ghshaien
+4 JJ镇
+	JJ镇堡王村卫生室	jcbwc
+	JJ镇曹李村卫生室	jcclc
+
+	JJ镇卫生院		jc
+	河南海恩药业有限公司	ghshaien
+5 KK镇
+	KK镇东郭村卫生室	qlzdgc
+	KK镇陈沟村卫生室	qlzcgc
+
+	KK镇卫生院		qlz
+	XX市医药公司		ghsxy
+6 LL镇
+	LL镇霸王城村卫生室	gwzbwcc
+	LL镇北任村卫生室	gwzbrc
+
+	LL镇卫生院		gwz
+	XX市医药公司		ghsxy
+7 MM镇
+	MM镇官庄村卫生室	gcxgzc
+	MM镇陈铺头村卫生室	gcxcptc
+
+	MM镇卫生院		gcx
+	河南海恩药业有限公司	ghshaien
+8 NN镇
+	NN镇金寨村卫生室	jzxjzc
+	NN镇楚楼村卫生室	jzxclc
+
+	NN镇卫生院		jzx
+	XX市医药公司		ghsxy
+9 OO镇
+	OO镇王村卫生室		wczwc
+	OO镇前白杨村卫生室	wczqbyc
+
+	OO镇卫生院		wcz
+	XX市医药公司		ghsxy
+10 BB镇
+	BB镇虎牢关村卫生室	sszhlgc
+	BB镇赵村卫生室		sszzc
+
+	BB镇卫生院		ssz
+	XX市医药公司		ghsxy
+11 CC镇
+	CC镇许村卫生室		gszxc
+	CC镇庙沟村卫生室	gszmgc
+
+	CC镇卫生院		gsz
+	河南九州通医药有限公司	ghsjzt
+12 DD镇
+	DD镇石板沟村卫生室	cgxsbgc
+	DD镇北周村卫生室	cgxbzc
+
+	DD镇卫生院		cgx
+	河南九州通医药有限公司	ghsjzt
+13 EE镇
+	EE镇刘河村卫生室	lhzlhc
+	EE镇申庄村卫生室	lhzszhc
+
+	EE镇卫生院		lhz
+	河南九州通医药有限公司	ghsjzt
+
