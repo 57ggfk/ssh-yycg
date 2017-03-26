@@ -1,0 +1,55 @@
+
+<!-- saved from url=(0042)http://i.tianqi.com/index.php?c=code&id=11 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>北京天气预报代码调用</title>
+    <link href="./tianqi_files/mobile.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./tianqi_files/jquery-1.8.2.min.js"></script>
+    <!--[if IE 6]>
+    <script type="text/javascript" mce_src="DD_belatedPNG.js" src="http://img.cxmx.com.cn/static/js/DD_belatedPNG.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix(".pngtqico");</script>
+    <![endif]-->
+    <style>
+        a{ font-size:12px;}
+        .col_kx { OVERFLOW: hidden; WIDTH:500px }
+    </style>
+    <script type="text/javascript">
+        var color = bgcolor = bdcolor = site = "";
+        var num = 2;
+        $(document).ready(function(){
+            if (typeof(bgcolor) != 'undefined' && bgcolor != '') {
+                $("#header_demo").css('background-color', bgcolor);
+                $("#header_demo1").css('background-color', bgcolor);
+                $("#header_demo2").css('background-color', bgcolor);
+            }
+            if (typeof(bdcolor) != 'undefined' && bdcolor != '') {
+                $("#header_demo").css('border', '1px solid ' + bdcolor);
+                $("#header_demo1").css('border', '1px solid ' + bdcolor);
+                $("#header_demo2").css('border', '1px solid ' + bdcolor);
+            }
+            if (typeof(color) != 'undefined' && color != '') {
+                $("#header_demo a").css('color', color);
+                $("#header_demo1 a").css('color', color);
+                $("#header_demo2 a").css('color', color);
+            }
+        });
+    </script>
+</head>
+<body marginwidth="0" marginheight="0" style="background-color:transparent;">
+<div id="header_demo" class="col_kx">
+    <table border="0" cellspacing="0" cellpadding="0"><tbody><tr>
+            <td id="header_demo1" nowrap="">
+                <div class="code1">
+                    <!-- <a style="color:#" target="_blank" href="" title="点击查看北京未来七天天气预报 "> -->
+                        <strong>今天：</strong>北京 晴 <span style="color:#f00">6℃</span>～<span style="color:#4899be">-5℃</span> 南风                        <strong>明天：</strong>北京 晴 <span style="color:#f00">3℃</span>～<span style="color:#4899be">-6℃</span> 南风 1-2级                        <strong>后天：</strong>北京 多云 <span style="color:#f00">3℃</span>～<span style="color:#4899be">-5℃</span> 南风 1-2级</a></div>
+            </td>
+            <td id="header_demo2" nowrap="">
+                <div class="code1">
+                   <!--  <a style="color:#" target="_blank" href="" title="点击查看北京未来七天天气预报 "> -->
+                        <strong>今天：</strong>北京 晴 <span style="color:#f00">6℃</span>～<span style="color:#4899be">-5℃</span> 南风                        <strong>明天：</strong>北京 晴 <span style="color:#f00">3℃</span>～<span style="color:#4899be">-6℃</span> 南风 1-2级                        <strong>后天：</strong>北京 多云 <span style="color:#f00">3℃</span>～<span style="color:#4899be">-5℃</span> 南风 1-2级</a></div>
+            </td>
+        </tr></tbody></table>
+</div>
+<script src="./tianqi_files/scroll2.js" type="text/javascript"></script>
+
+<script type="text/javascript">num=0;temp=0;</script></body></html>

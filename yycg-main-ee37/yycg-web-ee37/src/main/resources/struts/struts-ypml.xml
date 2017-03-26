@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 药品目录管理 -->
+	<package name="ypml" namespace="/ypml" extends="base">
+		<action name="*" class="ypxxAction" method="{1}">
+		<!-- 导出药品信息 -->
+			<result name="exportypxx">/business/ypml/exportypxx.jsp</result>
+			<result name="importypxx">/business/ypml/importypxx.jsp</result>
+			<result name="syncypxx">/business/ypml/syncypxx.jsp</result>
+		</action>
+	</package>
+</struts>

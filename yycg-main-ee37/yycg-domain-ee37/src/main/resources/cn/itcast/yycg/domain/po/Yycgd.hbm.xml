@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-6-21 16:07:07 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.domain.po.Yycgd" table="YYCGD">
+        <comment>医院采购单表</comment>
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" precision="22" scale="0" />
+           <generator class="cn.itcast.yycg.domain.po.generator.CgdBmSequence" >
+            	<!-- 指定序列名称-->
+            	<param name="sequence">
+            		yycgdbm
+            	</param>
+            </generator>
+        </id>
+        <many-to-one name="dwWss" class="cn.itcast.yycg.domain.po.DwWss" fetch="select">
+            <column name="WSS_ID" length="64" not-null="true"></column>
+        </many-to-one>
+        <many-to-one name="sysDictInfoByzt" class="cn.itcast.yycg.domain.po.SysDictInfo" fetch="select">
+            <column name="ZT" length="32" not-null="true"></column>
+        </many-to-one>
+        <many-to-one name="dwGys" class="cn.itcast.yycg.domain.po.DwGys" fetch="select">
+            <column name="GYS_ID" length="64" not-null="true"></column>
+        </many-to-one>
+        <property name="mc" type="string">
+            <column name="MC" length="128" not-null="true"></column>
+        </property>
+        <property name="lxr" type="string">
+            <column name="LXR" length="64"></column>
+        </property>
+        <property name="lxdh" type="string">
+            <column name="LXDH" length="64"></column>
+        </property>
+        <property name="cjr" type="string">
+            <column name="CJR" length="64"></column>
+        </property>
+        <property name="cjsj" type="java.util.Date">
+            <column name="CJSJ" length="7" not-null="true"></column>
+        </property>
+        <property name="tjsj" type="java.util.Date">
+            <column name="TJSJ" length="7"></column>
+        </property>
+        <property name="bz" type="string">
+            <column name="BZ" length="256"></column>
+        </property>
+        <property name="shyj" type="string">
+            <column name="SHYJ" length="256"></column>
+        </property>
+        <property name="shsj" type="java.util.Date">
+            <column name="SHSJ" length="7"></column>
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="64" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="64" />
+        </property>
+        <property name="xgsj" type="java.util.Date">
+            <column name="XGSJ" length="7"></column>
+        </property>
+        <set name="yycgdMxes" table="YYCGD_MX" inverse="true" lazy="true" fetch="select" cascade="save-update,delete">
+            <key>
+                <column name="YYCGD_ID" precision="22" scale="0" not-null="true"></column>
+            </key>
+            <one-to-many class="cn.itcast.yycg.domain.po.YycgdMx" />
+        </set>
+    </class>
+</hibernate-mapping>

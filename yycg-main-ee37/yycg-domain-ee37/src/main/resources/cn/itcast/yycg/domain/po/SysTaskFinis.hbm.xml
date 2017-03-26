@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-6-23 13:35:20 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.domain.po.SysTaskFinis" table="SYS_TASK_FINIS">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="taskType" type="string">
+            <column name="TASK_TYPE" length="2" not-null="true" />
+        </property>
+        <property name="data1" type="string">
+            <column name="DATA1" length="64" />
+        </property>
+        <property name="data2" type="string">
+            <column name="DATA2" length="64" />
+        </property>
+        <property name="data3" type="string">
+            <column name="DATA3" />
+        </property>
+        <property name="data4" type="string">
+            <column name="DATA4" />
+        </property>
+        <property name="data5" type="string">
+            <column name="DATA5" />
+        </property>
+        <property name="taskAddDate" type="java.util.Date">
+            <column name="TASK_ADD_DATE" length="7" />
+        </property>
+        <property name="taskFinisDate" type="java.util.Date">
+            <column name="TASK_FINIS_DATE" length="7"></column>
+        </property>
+    </class>
+</hibernate-mapping>

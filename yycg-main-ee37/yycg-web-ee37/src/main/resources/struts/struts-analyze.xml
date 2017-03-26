@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 药品目录管理 -->
+	<package name="analyze" namespace="/analyze" extends="base">
+		<action name="*" class="analyzeAction" method="{1}">
+		<!-- 导出药品信息 -->
+			<!-- 统计跳转页面
+				12月20日 14:29 Wangjie更新为echarts
+			 -->
+		 <result name="sumbyarea">/business/analyze/sumbyarea.jsp</result> 
+		 <result name="drugyzreaUI">/business/analyze/drugyzrea.jsp</result> 
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-28 16:33:34 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.domain.po.SysDictType" table="SYS_DICT_TYPE">
+        <comment>数据字典类型表</comment>
+        <id name="typecode" type="string">
+            <column name="TYPECODE" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="typename" type="string">
+            <column name="TYPENAME" length="64" not-null="true"></column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="256"></column>
+        </property>
+        <property name="typesort" type="java.lang.Integer">
+            <column name="TYPESORT" precision="22" scale="0"></column>
+        </property>
+        <property name="codelength" type="java.lang.Integer">
+            <column name="CODELENGTH" precision="22" scale="0"></column>
+        </property>
+       <!--  <set name="sysDictInfos" table="SYS_DICT_INFO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TYPECODE" length="32" not-null="true"></column>
+            </key>
+            <one-to-many class="cn.itcast.yycg.domain.po.SysDictInfo" />
+        </set> -->
+    </class>
+</hibernate-mapping>

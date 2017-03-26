@@ -1,0 +1,58 @@
+{
+   "menus" : [
+   				{"icon" : "icon-sys","menuid" : "1","menuname" : "测试菜单","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "根据id查询用户","url" : "/user/findById.action?sysUserQueryCustom.id=32"
+                 },
+                  {"icon" : "icon-log","menuid" : "1_1","menuname" : "传智播客","url" : "http://www.itcast.cn"
+                 },
+                  {"icon" : "icon-log","menuid" : "1_1","menuname" : "面板Panel","url" : "/test/00.panel.jsp"
+                 },
+                  {"icon" : "icon-log","menuid" : "1_1","menuname" : "数据网格","url" : "/test/11.datagrid.jsp"
+                 },
+                  {"icon" : "icon-log","menuid" : "1_1","menuname" : "数据网格2","url" : "/test/04-01.datagrid.jsp"
+                 }]
+               },
+   				{"icon" : "icon-sys","menuid" : "1","menuname" : "系统管理","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "测试","url" : "/user/getuser.action?sysUserCustom.id=34"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "用戶管理","url" : "/user/queryuser.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "用戶管理Json","url" : "/user/queryuser_result.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "系统设置","url" : "/system/systems.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "角色授权","url" : "/perm/rolelist.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "权限修改","url" : "/perm/permList.action"
+                 }]
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "药品目录","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导出","url" : "/ypml/exportypxx.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导入","url" : "/ypml/importypxx.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录同步","url" : "/ypml/syncypxx.action"
+                 }]
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "采购单管理","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "创建采购单","url" : "/cgd/add.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "采购单维护","url" : "/cgd/list.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "审核采购单","url" : "/cgd/checklist.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "受理采购单","url" : "/cgd/disposelist.action"
+                 }]
+               }
+               ,
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "统计分析","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按区域统计","url" : "/business/analyze/echartSumbyarea.jsp"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "交易明细查询","url" : "/bussinessdetail/bussinessDetailUI.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按药品统计","url" : "/analyze/drugyzreaUI.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按月份统计","url" : "/business/analyze/MonthBar.jsp"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按区域统计","url" : "/business/analyze/echartSumbyarea.jsp"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按区域统计2","url" : "/analyze/sumbyarea.action"
+                 }]
+               }
+             ]
+} 

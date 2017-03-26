@@ -1,0 +1,98 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd ">
+		
+	<!-- shiro 开启注解支持 -->
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- 需要配置shiro处理请求bean 
+		1.之后需要认证，必须使用“安全管理器”
+		2.基本配置：
+			需要认证，确定登录页面：loginUrl
+			认证通过，通过页面：successUrl
+			不通过，未认证页面：unauthorizedUrl
+		3.为项目不同路径配置认证方式
+			格式：
+				路径 = 认证方式
+			例如：
+				/auth/login.action = anon		#给指定路径设置认证方式(匿名)
+				/images/**		= anon			#给指定目录设置认证方式
+				
+				/** = authc						#除了上面已经设置，其他路径需要认证
+	-->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager"></property>
+		
+		<property name="loginUrl" value="/auth/login.jsp"></property>
+		<property name="successUrl" value="/index.jsp"></property>
+		<property name="unauthorizedUrl" value="/auth/refuse.jsp"></property>
+		
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- 对静态资源设置匿名访问 -->
+				/images/** = anon
+				/js/** = anon
+				/styles/** = anon
+				/jfreechart/** = anon
+				/test/** = anon
+				
+				<!-- 可匿名访问路径，例如：验证码 -->
+				/auth/validatecode.jsp = anon
+				/auth/login.action = anon
+				/config-browser/** = anon
+				
+				<!-- 退出 -->
+				/auth/logout.action = logout
+				
+				<!-- 剩余其他路径，必须认证通过才可以访问 -->
+				/** = authc
+			</value>
+		</property>
+	
+	</bean>
+	
+	
+	<!-- 配置安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="customRealm"></property>
+	</bean>
+	
+	<!-- 配置自定义realm 
+		* 需要通过shiro，自定义realm查询密码为密文(明文)，且使用时md5加密
+	-->
+	<bean id="customRealm" class="cn.itcast.yycg.auth.shiro.realm.CustomRealm">
+		<property name="credentialsMatcher" ref="credentialsMatcher"></property>
+	</bean>
+	
+	<!-- 凭证匹配器 -->
+	<bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+		<!-- 指定散列算法，为MD5 -->
+		<property name="hashAlgorithmName" value="md5"></property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>

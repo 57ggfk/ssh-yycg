@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置常量 -->
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- ui主题 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 访问action的扩展名是.action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 修改struts2文件上传的大小，默认2097152 -->
+	<constant name="struts.multipart.maxSize" value="20971520"></constant>
+	<!-- 设置struts2从jar包中搜索action，用于注解开发 -->
+	<constant name="struts.convention.package.locators.basePackage" value="cn.itcast.yycg"/> 
+	
+	<!-- 配置基础package -->
+	<package name="base"  extends="struts-default">
+		<interceptors>
+			<interceptor name="exceptionInterceptor" class="cn.itcast.yycg.framework.exception.ExceptionInterceptor"></interceptor>
+<!--  			设置 拦截器栈  -->
+			<interceptor-stack name="customStack">
+				<interceptor-ref name="exceptionInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="customStack"/>
+		<!-- 公用 result -->
+		<global-results>
+			<result name="error_jsp" >
+				/common/error.jsp
+			</result>
+			<!-- 拒绝访问 -->
+			<result name="refuse" >
+				/common/refuse.jsp
+			</result>
+		</global-results>
+		<!-- 统一jsp访问 -->
+		<action name="ui_*_*">
+			<result>/business/{1}/{2}.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

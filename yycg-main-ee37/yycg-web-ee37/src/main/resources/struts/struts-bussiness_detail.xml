@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 药品目录管理 -->
+	<package name="bussinessDetail" namespace="/bussinessdetail" extends="base">
+		<action name="*" class="bussinessDetailAction" method="{1}">
+			<result name="bussinessDetailUI">/business/analyze/bussinessdetail.jsp</result>
+			<result name="input">/welcome.jsp</result>			
+		</action>
+	</package>
+</struts>

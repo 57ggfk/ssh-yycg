@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="base">
+		<action name="*" class="sysUserAction" method="{1}">
+			<result name="findById">/business/user/findSysUserById.jsp</result>
+			<result name="queryuser">/business/user/queryuser.jsp</result>
+			<result name="adduser">/business/user/adduser.jsp</result>
+			<result name="edituser">/business/user/edituser.jsp</result>
+		</action>
+	</package>
+</struts>

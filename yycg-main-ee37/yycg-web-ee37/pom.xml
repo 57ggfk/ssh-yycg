@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.itcast.yycg</groupId>
+    <artifactId>yycg-main-ee37</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>yycg-web-ee37</artifactId>
+  <packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.itcast.yycg</groupId>
+			<artifactId>yycg-service-ee37</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.itcast.yycg</groupId>
+			<artifactId>yycg-perm</artifactId>
+			<version>0.0.ee37-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	
+</project>

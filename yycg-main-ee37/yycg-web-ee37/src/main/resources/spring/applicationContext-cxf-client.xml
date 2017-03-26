@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:jaxws="http://cxf.apache.org/jaxws"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd 
+	   					   http://cxf.apache.org/jaxws 
+	   					   http://cxf.apache.org/schemas/jaxws.xsd">
+	
+	<!--  
+		<jaxws:client> 配置ws服务客户端，相当于<bean>，将执行的对象添加到spring容器中
+			id ：就是spring容器创建实例名称
+			serviceClass ：需要声明一个接口，此时创建代理对象，具有访问远程服务功能
+			address：确定远程服务的地址
+	-->
+	<jaxws:client id="ypxxShengService" serviceClass="cn.itcast.yycg.province.service.YpxxShengService" 
+		address="http://localhost:9090/ws/syncypxx" ></jaxws:client>
+
+</beans>
